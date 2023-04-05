@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    restart: always
+    privileged: true
+    user: root
+    ports:
+      - 8081:8080
+      - 50000:50000
+    container_name: jenkins1
+    volumes:
+      - /home/${myname}/Users/kudraman/docker_usage:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
